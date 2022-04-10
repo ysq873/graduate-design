@@ -1,0 +1,34 @@
+# DataSource Config h2数据库 文件型 不需要安装
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    schema: classpath:db/schema-h2.sql
+    data: classpath:db/data-h2.sql
+#    url: jdbc:h2:mem:test
+    url: jdbc:h2:file:~/h2db/h2db;DATABASE_TO_UPPER=FALSE
+    username: root
+    password: test
+  h2:
+      console:
+        settings:
+          web-allow-others: true
+        path: /h2-console
+        enabled: true   # http://localhost:8080/h2-console  h2数据库网页端控制台
+
+## 下面的配置是针对mysql数据库的 把上面的注释掉切换成下面的就可以用mysql数据库
+## DataSource Config  for mysql
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://ip:port/temp?useSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true
+#    username: username
+#    password: password
+
+spider:
+  #爬虫链接和进度持久化文件夹 默认是当前用户目录下
+  file-cache-queue-dir: spider/scheduler
+
+logging:
+  path: ../logs
+
+
